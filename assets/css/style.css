@@ -1,0 +1,149 @@
+html, body{
+    margin: 0;
+    box-sizing: border-box;
+}
+.card-body{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+::-webkit-scrollbar{
+  width: 4px;
+}
+::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 10px grey;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: darkslategrey;
+    border-radius: 8px;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.card a, .card button{
+    width: 100%;
+    font-weight: 500;
+}
+.btn{
+    border: 0;
+    border-radius: 8px;
+}
+#topButton{
+    display: inline-block;
+    background-color: #337bab;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    position: fixed !important;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+#topButton::after{
+    font-weight: bold;
+    font-style: normal;
+    font-size: .5em;
+    line-height: 10px;
+    color: #fff;
+}
+#topButton:hover{
+    cursor: pointer;
+    background-color: #333;
+}
+#topButton:active{
+    background-color: #555;
+}
+#topButton.show{
+    opacity: 1;
+    visibility: visible;
+}
+.cookie-popup{
+    z-index: 999;
+    font-size: 0.875rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: fixed;
+    left: 1.25rem;
+    right: 1.25rem;
+    padding: 0.625rem 0.9375rem;
+    box-shadow: 0 0 0.625rem 0 rgba(0,0,0, .15);
+    line-height: 150%;
+    transition: opacity .5s;
+    opacity: 0;
+    background: #000;
+    color: #fff;
+}
+.cookie-popup--not-accepted{
+    opacity: 1;
+    animation: cookie-popup-in .5s ease forwards;
+}
+.cookie-popup--accepted{
+    opacity: 0;
+}
+.cookie-popup a{
+    color: skyblue;
+}
+.cookie-popup a:visited{
+    color: skyblue;
+    text-decoration: none;
+}
+.cookie-popup-actions{
+    flex: 1;
+    text-align: right;
+}
+.cookie-popup-actions button{
+    color: orange;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0;
+    cursor: pointer;
+}
+.cookie-popup-actions button:hover{
+    text-decoration: underline;
+}
+#cookieIcon{
+    fill: #306bf3;
+    margin-right: 5px;
+}
+@keyframes cookie-popup-in{
+    from { bottom: -6.25rem; }
+    to { bottom: 1.25rem; }
+}
+@media screen and (max-width: 768px){
+    svg:not(.bi-tools, #cookieIcon, .bi-chevron-up, #searchIcon){
+        display: none;
+    }
+    #search{
+        width: 300px !important;
+    }
+}
+#search{
+    border-radius: 2px;
+    width: 500px;
+    padding: 9px;
+    font-size: 17px;
+    border: 1px solid #ccc;
+}
+.search-container button{
+    padding: 8px 10px;
+    background: #3763f4;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+*{
+    scroll-behavior: smooth;
+}

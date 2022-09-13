@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^((?!add|my-posts|addPost)[0-9a-zA-Z\-_/]+)$ post.php?par=$1 [NC,L,QSA]
+RewriteRule ^rss.xml(/?)$ rss.php
+RewriteRule ^sitemap.xml(/?)$ sitemap.php

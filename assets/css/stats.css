@@ -1,0 +1,33 @@
+canvas{
+    border: 1px dotted red;
+}
+.chart-container{
+    position: relative;
+    height: 80vh;
+    width: 80vw;
+    margin-bottom: 50px;
+}
+.chart{
+    width: 100%;
+    display: flex;
+}
+.chart div{
+    width: 50%;
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex 1;
+}
+.chart div:nth-child(odd){
+    margin-right: 10px;
+}
+@media screen and (max-width: 744px){
+    .chart{
+        display: block;
+    }
+    .chart div{
+        width: 100%;
+    }
+    .chart div:not(:first-child){
+        margin-right: 0;
+    }
+}

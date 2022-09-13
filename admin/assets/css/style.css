@@ -1,0 +1,77 @@
+html, body{
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 4px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 10px grey;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: darkslategrey;
+    border-radius: 8px;
+}
+#topButton{
+    display: inline-block;
+    background-color: #337bab;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    position: fixed !important;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+#topButton::after{
+    font-weight: bold;
+    font-style: normal;
+    font-size: .5em;
+    line-height: 10px;
+    color: #fff;
+}
+#topButton:hover{
+    cursor: pointer;
+    background-color: #333;
+}
+#topButton:active{
+    background-color: #555;
+}
+#topButton.show{
+    opacity: 1;
+    visibility: visible;
+}
+.chart-container{
+    position: relative;
+    height: 33.7vh;
+    margin: 0 auto;
+}
+.chart{
+    width: 100%;
+    display: flex;
+}
+.chart div{
+    width: 50%;
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+}
+#search{
+    border-radius: 2px;
+    padding: 9px;
+    font-size: 17px;
+    border: 1px solid #ccc;
+}
+.search-container button{
+    padding: 8px 10px;
+    background: #3763f4;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}

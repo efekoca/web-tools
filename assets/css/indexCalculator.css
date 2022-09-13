@@ -1,0 +1,45 @@
+#indexForm{
+    background-color: royalblue;
+    width: 275px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    padding: 30px 0;
+}
+#indexForm h2{
+    font-size: 20px;
+    text-align: center;
+}
+.col1{
+    width: 230px;
+    display: block;
+    margin: 0 10px 5px;
+}
+.col2{
+    width: 230px;
+    margin: 0 10px 10px;
+    border: 0;
+    border-radius: 5px;
+    height: 30px;
+    text-indent: 10px;
+    outline: none;
+    font-family: "Roboto", sans-serif;
+    color: #911146;
+}
+label{
+    display: inline-block;
+}
+input[type="button"], input[type="reset"]{
+    width: 232px;
+    height: 35px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 10px 10px 20px;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+input[type="button"]:hover, input[type="reset"]:hover{
+    background-color: wheat;
+}

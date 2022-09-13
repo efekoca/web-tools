@@ -1,0 +1,22 @@
+input[type="color"]{
+    background-color: #fff;
+    padding: 10px;
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 3px;
+    margin: 20px;
+}
+b{
+    background-color: #fff;
+    padding: 16px;
+    font-family: sans-serif;
+}
+code{
+    font-size: 1.2rem;
+    background-color: lightslategray;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+}
