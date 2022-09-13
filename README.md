@@ -1,7 +1,7 @@
 # Web Tools
- Online web tools and blog system with advanced features.
+ :clock4: Online web tools and blog system with advanced features.
 
-> **How to Install**
+> **:link:	How to Install**
 
 - Create a database and upload "**database.sql**" into this.
 
@@ -19,7 +19,7 @@ $mailUsername = ""; // Mail username for contact forms.
 $mailPassword = ""; // Mail password for contact forms.
 ```
 
-> **Some Features**
+> **:ladder:	Some Features**
 
 - When you add a blog post, sitemap automatically updates and sends to google for index.
 - You can add editor from panel for blog system. (Editors can only share a post, edit and delete.)
@@ -38,12 +38,12 @@ $mailPassword = ""; // Mail password for contact forms.
 - Full automatic system.
 - Fully mobile compatible.
 
-> **Panel Login Information**
+> **:paperclip: Panel Login Information**
 
 - Username: **admin**
 - Password: **admin**
 
-> **Some Tools**
+> **:gear:	Some Tools**
 
 - Website Screenshot
 - Whois Query
@@ -54,7 +54,7 @@ $mailPassword = ""; // Mail password for contact forms.
 - Weather Forecast
 - Website Source Code and more...
 
-> **Images from Project**
+> **:open_file_folder: Images from Project**
 
 ![home](https://user-images.githubusercontent.com/52746944/189879779-90dc710e-77b9-4e36-811b-e6938e57fff6.png)
 
@@ -72,7 +72,7 @@ $mailPassword = ""; // Mail password for contact forms.
 
 ![tool](https://user-images.githubusercontent.com/52746944/189879895-ac4efd4d-732d-4ae7-9760-b82d60074342.png)
 
-> **Page speed statistics:**
+> **:bar_chart: Page speed statistics:**
 
 - **Desktop:**
 
