@@ -40,6 +40,16 @@ $addStat->execute();
                             <h5 class="fw-bold card-title">Image Compressor</h5>
                             <p class="text-muted card-text">Convert selected image to reduced size with one click without losing quality.</p>
                             <?php if(!empty($_POST["isUpload"])){
+                                if(!file_exists("compressedImages")){
+                                    try{
+                                        mkdir("compressedImages");
+                                        $openIndexFile = fopen("compressedImages/index.php", "x");
+                                        fwrite($openIndexFile, '<?php header("Location: ../"); die(); ?>');
+                                        fclose($openIndexFile);
+                                    }catch(Exception $e){
+                                        echo("An unexpected error occurred. Please try again later.");
+                                    }
+                                }
                                 $getErrorCount = 0;
                                 if(empty($_FILES["image"])){
                                     $getErrorCount += 1;
@@ -56,7 +66,7 @@ $addStat->execute();
                                     <?php }else{
                                         $getFileName = compress($_FILES["image"]["tmp_name"]); ?>
                                         <div class="mb-3">
-                                            <img id="pp" class="img-fluid w-100" style="width: 10%; max-width: 100%; height: auto; margin-top: 10px;" src="compressedImages/<?php echo($getFileName); ?>" alt="Sıkıştırılacak Resim"> <br>
+                                            <img id="pp" class="img-fluid w-100" style="width: 10%; max-width: 100%; height: auto; margin-top: 10px;" src="compressedImages/<?php echo($getFileName); ?>" alt="Compressed Image"> <br>
                                             <a style="text-decoration: none;" download="compressedImages/<?php echo($getFileName); ?>" id="downloadTag"><button type="button" class="btn btn-primary w-100" style="margin-top: 15px;" id="downloadButton">Download</button></a>
                                         </div>
                                         <script>
