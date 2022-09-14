@@ -29,7 +29,7 @@ echo('<?xml version="1.0" encoding="UTF-8"?>'); ?>
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-      <loc>https://www.ucretsizaraclar.com/</loc>
+      <loc><?php echo($siteUrl); ?></loc>
       <lastmod><?php echo(date(DATE_W3C, time())); ?></lastmod>
       <priority>1.00</priority>
     </url>
