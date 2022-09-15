@@ -4,7 +4,7 @@
         die();
     }
     try{
-        $connect = new PDO("mysql:host=localhost;dbname=araclar;charset=UTF8", "root", "");
+        $connect = new PDO("mysql:host=localhost;dbname=DBNAME;charset=UTF8", "DBUSERNAME", "DBPASSWORD");
     }catch(PDOException $err){
         echo("<center> Check your database settings from core/dbConnect.php</center>");
         exit();
