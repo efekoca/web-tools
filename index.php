@@ -51,7 +51,7 @@
                     <div class="d-flex justify-content-center gap-4 flex-column align-items-center row-cols-1 row-cols-md-2 mx-auto mt-5" style="max-width: 900px;">
                         <?php foreach($getAdsForIndex->fetchAll(PDO::FETCH_ASSOC) as $adSearch){ ?>
                             <div class="text-center">
-                                <img class="img-fluid" src="<?php echo(url()); ?>/assets/img/<?php echo($adSearch["image"]); ?>" alt="<?php echo($adSearch["title"]); ?>">
+                                <a href="<?php echo($adFooter["link"]); ?>"><img class="img-fluid" src="<?php echo(url()); ?>/assets/img/<?php echo($adSearch["image"]); ?>" alt="<?php echo($adSearch["title"]); ?>"></a>
                             </div>
                         <?php } ?>
                     </div>

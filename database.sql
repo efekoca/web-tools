@@ -24,6 +24,7 @@ CREATE TABLE `ads` (
   `id` int(20) UNSIGNED NOT NULL,
   `image` varchar(100) NOT NULL,
   `title` varchar(500) NOT NULL,
+  `link` varchar(500) NOT NULL,
   `area` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

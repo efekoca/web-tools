@@ -34,7 +34,7 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
         <h3 class="text-dark mb-4">Settings</h3>
         <div class="row mb-3">
             <div>
-                <?php if((!empty($_POST["title"])) and (!empty($_POST["area"]))){
+                <?php if((!empty($_POST["title"])) and (!empty($_POST["link"])) and (!empty($_POST["area"]))){
                     $getErrorCount = 0;
                         if(empty($_FILES["adImage"])){
                             $getErrorCount += 1; ?>
@@ -70,11 +70,12 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
                                     $imgName = $randomName . "." . substr($img["name"], -3);
                             }
                             if(move_uploaded_file($img["tmp_name"], $formattedNewImgName)){
-                                $addUser = $connect->prepare("INSERT INTO ads (title, area, image) VALUES (?, ?, ?)");
+                                $addUser = $connect->prepare("INSERT INTO ads (title, area, image, link) VALUES (?, ?, ?, ?)");
                                 $addUser->execute(array(
                                     filter($_POST["title"]),
                                     filter($_POST["area"]),
                                     $imgName,
+                                    filter($_POST["link"]),
                                 )); ?>
                                 <div class="alert alert-success" role="alert">
                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>Related ad successfully added.
@@ -106,6 +107,10 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
                                     <input class="form-control" type="text" id="title" placeholder="Please specify a title." name="title" required>
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label" for="link"><strong>Ad URL</strong></label>
+                                    <input class="form-control" type="text" id="link" placeholder="Please specify an URL." name="link" required>
+                                </div>
+                                <div class="mb-3">
                                     <label class="form-label" for="area"><strong>Ad Area</strong></label>
                                     <select class="form-select" aria-label="Ad Area" id="area" name="area" required>
                                         <option selected disabled>Please select an ad area.</option>
@@ -130,7 +135,7 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
                         <p class="text-primary m-0 fw-bold">Edit Ad</p>
                     </div>
                     <div class="card-body">
-                        <?php if((!empty($_POST["editTitle"])) and (!empty($_POST["editID"])) and (!empty($_POST["editArea"]))){
+                        <?php if((!empty($_POST["editTitle"])) and (!empty($_POST["editLink"])) and (!empty($_POST["editID"])) and (!empty($_POST["editArea"]))){
                             $filteredIDForEdit = filter($_POST["editID"]);
                             $getEditData = $connect->prepare("SELECT * FROM ads WHERE id = ?");
                             $getEditData->execute(array(
@@ -142,10 +147,11 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
                                 </div>
                             <?php }else{
                                 $editData = $getEditData->fetch(PDO::FETCH_ASSOC);
-                                $editAd = $connect->prepare("UPDATE ads SET title = ?, area = ? WHERE id = ? LIMIT 1");
+                                $editAd = $connect->prepare("UPDATE ads SET title = ?, area = ?, link = ? WHERE id = ? LIMIT 1");
                                 $editAd->execute(array(
                                     filter($_POST["editTitle"]),
                                     filter($_POST["editArea"]),
+                                    filter($_POST["editLink"]),
                                     $filteredIDForEdit,
                                 )); ?>
                                 <div class="alert alert-success" role="alert">
@@ -168,6 +174,10 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
                                         <div class="mb-3">
                                             <label class="form-label" for="editTitle"><strong>Ad Title</strong></label>
                                             <input class="form-control" type="text" id="editTitle" value="<?php echo($editData["title"]); ?>" name="editTitle" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="editLink"><strong>Ad URL</strong></label>
+                                            <input class="form-control" type="text" id="editLink" value="<?php echo($editData["link"]); ?>" name="editLink" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="editArea"><strong>Ad Area</strong></label>
@@ -215,6 +225,7 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Title</th>
+                                            <th scope="col">URL</th>
                                             <th scope="col">Ad Area</th>
                                             <th scope="col">Image</th>
                                         </tr>
@@ -224,6 +235,7 @@ $ads = $getAds->fetchAll(PDO::FETCH_ASSOC); ?>
                                             <tr>
                                                 <th scope="row"><?php echo($ad["id"]); ?></th>
                                                 <td><?php echo($ad["title"]); ?></td>
+                                                <td><?php echo($ad["link"]); ?></td>
                                                 <td><?php echo($ad["area"] == "footer" ? "Top of the footer section (All pages)" : "Under the search button (Only main page)"); ?></td>
                                                 <td><img src="../assets/img/<?php echo($ad["image"]); ?>" class="img-fluid" style="width: auto; height: 100px;"></td>
                                                 <td>
