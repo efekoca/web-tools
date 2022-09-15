@@ -38,7 +38,7 @@ $contactFormCount = $getContactFormCount->rowCount();
                         $queryForChange->execute(array(
                             $filteredUsernameForChange
                         ));
-                        if(($queryForChange->rowCount() > 0) or ($settings["username"] == $filteredUsernameForChange)){ ?>
+                        if(($queryForChange->rowCount() > 0) and ($settings["username"] != $filteredUsernameForChange)){ ?>
                             <div class="alert alert-danger" role="alert">
                                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>The username you specified is already in use. Please try another username.
                             </div>
@@ -56,11 +56,14 @@ $contactFormCount = $getContactFormCount->rowCount();
                                     $filteredUsernameForChange,
                                     md5(filter($_POST["newPassword"]))
                                 ));
-                            } ?>
-                            <div class="alert alert-success" role="alert">
-                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>Related settings successfully saved.
-                            </div>
-                        <?php }
+                            } 
+                            setcookie("id", null, 0, "/");
+                            if(!empty($_COOKIE["id"])){
+                                unset($_COOKIE["id"]);
+                            }
+                            header("Location: login.php");
+                            die();
+                        }
                     }
                 } ?>
                 <div class="card shadow mb-3">
