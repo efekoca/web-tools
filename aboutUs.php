@@ -11,8 +11,8 @@
 
 <body class="bg-primary-gradient">
 <?php require("pages/navbar.php"); ?>
-<section class="pt-5 mt-4">
-    <div class="container pt-5">
+<section class="pt-5 mt-4 mb-4">
+    <div class="container pt-5 pt-5 p-lg-5">
         <div class="row d-flex justify-content-center container">
             <h2 class="text-center"><strong>About Us</strong><h2>
             <?php echo($settings["aboutUsPage"]); ?>

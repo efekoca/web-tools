@@ -78,9 +78,9 @@
             <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"></path>
         </svg>
     </a>
-    <section class="pt-5">
+    <section class="pt-5 mb-4">
         <div class="container mb-0 pt-4 pt-xl-5">
-            <div class="pt-5 pt-lg-5 container">
+            <div class="pt-5 p-lg-5 container">
                 <div class="flex-column d-flex justify-content-center mx-auto" style="max-width: 900px;">
                     <div class="text-center mb-4">
                         <h1 id="text" class="fw-bold"><?php echo($getPost["title"]); ?></h1>

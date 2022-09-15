@@ -123,7 +123,7 @@ html, body{
     to { bottom: 1.25rem; }
 }
 @media screen and (max-width: 768px){
-    svg:not(.bi-tools, #cookieIcon, .bi-chevron-up, #searchIcon){
+    svg:not(.bi-tools, #cookieIcon, .bi-chevron-up, #searchIcon, .bi-instagram, .bi-envelope, .bi-link-45deg){
         display: none;
     }
     #search{

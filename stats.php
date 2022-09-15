@@ -19,8 +19,8 @@ $getBrowsersAndDevices->execute(); ?>
         <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"></path>
     </svg>
 </a>
-<section class="pt-5 mt-5">
-    <div class="container pt-5">
+<section class="pt-5 mt-5 mb-4">
+    <div class="container mb-0 pt-5 p-lg-5">
         <?php if(($getStats->rowCount()) > 0 and ($getBrowsersAndDevices->rowCount() > 0)){ ?>
         <div class="row mb-5">
             <div>
