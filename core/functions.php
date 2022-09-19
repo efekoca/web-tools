@@ -168,7 +168,7 @@
         "metaTag" => "Meta Tag Generator",
         "weather" => "Weather Forecast",
         "indexCalculator" => "Index Calculator",
-        "preview" => "Kod Previewer",
+        "preview" => "Code Previewer",
         "githubUser" => "Github Profile Information",
         "password" => "Password Generator",
         "editor" => "Live Text Editor",
