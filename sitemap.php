@@ -6,15 +6,20 @@ $blockedPages = array("dbConnect.php", "cookie.php", "browser.php", "sitemap.php
 $getPosts = $connect->prepare("SELECT * FROM blog ORDER BY id DESC");
 $getPosts->execute();
 $files = glob("*.php");
+$tools = glob("main/*.php");
+$formattedTools = array();
+foreach($tools as $tool){
+    array_push($formattedTools, basename($tool));
+}
 if($getPosts->rowCount() > 0){
-    $allPages = $files;
+    $allPages = array_merge($files, $formattedTools);
     $blogPosts = $getPosts->fetchAll(PDO::FETCH_ASSOC);
     array_push($allPages, "blog/");
     foreach($blogPosts as $post){
         array_push($allPages, "blog/" . $post["sef"]);
     }
 }else{
-    $allPages = $files;
+    $allPages = array_merge($files, $formattedTools);
 }
 
 $allPages = array_filter($allPages, function($el){
